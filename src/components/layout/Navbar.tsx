@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
-import { useLanguageStore } from '@/stores/useLanguageStore';
-import { useThemeStore } from '@/stores/useThemeStore';
-import { Button } from '@/components/common/Button';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
+import { useLanguageStore } from "@/stores/useLanguageStore";
+import { useThemeStore } from "@/stores/useThemeStore";
+import { Button } from "@/components/common/Button";
 
 export function Navbar() {
   const lang = useLanguageStore((s) => s.lang);
@@ -16,17 +16,17 @@ export function Navbar() {
   const pathname = usePathname();
 
   const links = [
-    { href: '/', label: t.nav_home },
-    { href: '/chart', label: t.nav_chart },
-    { href: '/table', label: t.nav_table },
+    { href: "/", label: t.nav_home },
+    { href: "/chart", label: t.nav_chart },
+    { href: "/table", label: t.nav_table },
   ];
 
   return (
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
@@ -41,9 +41,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
-                  pathname === link.href
-                    ? 'text-primary'
-                    : 'text-foreground/80'
+                  pathname === link.href ? "text-primary" : "text-foreground/80"
                 }`}
               >
                 {link.label}
@@ -60,7 +58,7 @@ export function Navbar() {
               {lang.toUpperCase()}
             </Button>
             <Button variant="ghost" size="sm" onClick={toggleTheme}>
-              {theme === 'dark' ? '☀️' : '🌙'}
+              {theme === "dark" ? "☀️" : "🌙"}
             </Button>
           </motion.div>
         </div>

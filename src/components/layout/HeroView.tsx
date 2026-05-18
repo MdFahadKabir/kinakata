@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { motion, type Variants } from 'framer-motion';
-import { useLanguageStore } from '@/stores/useLanguageStore';
-import { Typography } from '@/components/common/Typography';
-import { AnimatedStats } from '@/components/common/AnimatedStats';
-import { SubscribeForm } from '@/components/forms/SubscribeForm';
+import { motion, type Variants } from "framer-motion";
+import { useLanguageStore } from "@/stores/useLanguageStore";
+import { Typography } from "@/components/common/Typography";
+import { AnimatedStats } from "@/components/common/AnimatedStats";
+import { SubscribeForm } from "@/components/forms/SubscribeForm";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.12, duration: 0.5, ease: 'easeOut' as const },
+    transition: { delay: i * 0.12, duration: 0.5, ease: "easeOut" as const },
   }),
 };
 
@@ -29,19 +29,32 @@ export function HeroView() {
       >
         <Typography
           variant="h1"
-          className="bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent"
+          className="bg-linear-to-r from-primary to-blue-900 bg-clip-text text-transparent"
         >
           {t.hero_title}
         </Typography>
       </motion.div>
 
-      <motion.div custom={1} initial="hidden" animate="visible" variants={fadeUp}>
-        <Typography variant="h3" className="max-w-3xl font-normal text-foreground/80">
+      <motion.div
+        custom={1}
+        initial="hidden"
+        animate="visible"
+        variants={fadeUp}
+      >
+        <Typography
+          variant="h3"
+          className="max-w-3xl font-normal text-foreground/80"
+        >
           {t.hero_subtitle}
         </Typography>
       </motion.div>
 
-      <motion.div custom={2} initial="hidden" animate="visible" variants={fadeUp}>
+      <motion.div
+        custom={2}
+        initial="hidden"
+        animate="visible"
+        variants={fadeUp}
+      >
         <AnimatedStats />
       </motion.div>
 
